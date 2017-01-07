@@ -2,36 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd5d28db-06d0-4b17-ada6-6172bd5c7215" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/addicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/collapse.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/editicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/egg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/expand.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/order.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/product/cosmetics-animal-testing-390x285.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/removeicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Cosmetic-NodeJS.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/body.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/indexpage.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/jquery.treegrid.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/menupage.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/modal.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/navbar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/menu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/script/indexpage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/script/jquery.treegrid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/script/menupage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/script/moment.min.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/img/addicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/img/collapse.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/img/editicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/img/egg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/img/expand.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/img/order.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/img/product/cosmetics-animal-testing-390x285.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/img/removeicon.png" afterPath="" />
     </list>
     <ignored path="Cosmetic-NodeJS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,7 +30,18 @@
     <favorites_list name="Cosmetic-NodeJS" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -120,6 +109,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Cosmetic-NodeJS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cosmetic-NodeJS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cosmetic-NodeJS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,12 +372,12 @@
       <option name="presentableId" value="Default" />
       <updated>1483765645392</updated>
       <workItem from="1483765648511" duration="299000" />
-      <workItem from="1483766253036" duration="19000" />
+      <workItem from="1483766253036" duration="135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="318000" />
+    <option name="totallyTimeSpent" value="434000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -434,18 +437,18 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
