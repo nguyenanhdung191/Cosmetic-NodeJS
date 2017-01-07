@@ -1,3 +1,99 @@
+const getAllProduct = () => {
+    let HTML = "";
+    $("#menuList").html("");
+    $.get("api/products", data => {
+        data.forEach(product => {
+            HTML += `<div class="menuItem">
+                        <div class="productImage"><img src="img/product/${product.productImageUrl}" alt="Chưa có hình"/></div>
+                        <div class="productName">${product.productName}</div>
+                        <div class="productDescription">${product.productDescription}</div>
+                        <div class="productPrice">${product.productPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VNĐ</div>
+                        <div class="productOperation">
+                            <img class="removeButton" onclick="removeProduct('${product.productID}','${product.productImageUrl}')" src="img/removeicon.png"/>
+                            <img class="editButton" onclick="showEditProductModal('${product.productID}','${product.productName}','${product.productDescription}','${product.productPrice}','${product.productImageUrl}','${product.productTypeID}')" src="img/editicon.png"/>
+                        </div>
+                    </div>`;
+        });
+        HTML += `<div class="menuItem">
+                    <div class="addIconButton"><img id="addMenuItemButton" class="addButton" src="img/addicon.png"/></div>
+                 </div>`;
+        $("#menuList").html(HTML);
+        modal();
+    });
+};
+const getAllProductType = () => {
+    let HTML = "";
+    $("#inputProductTypeSelector").html("");
+    $.get("/api/productTypes", data => {
+        data.forEach(producttype => {
+            HTML += `<option value="${producttype.productTypeID}">${producttype.productTypeName}`;
+        });
+
+        $("#inputProductTypeSelector").html(HTML);
+    });
+};
+const showEditProductModal = (id,name,description,price,imageUrl,typeID) => {
+    var modal = document.getElementById('addMenuItem');
+    modal.style.display = "block";
+    $("#inputProductName").val(name);
+    $("#inputProductDescription").val(description);
+    $("#inputProductPrice").val(price);
+    $("#inputProductTypeSelector").val(typeID);
+    $("#inputProductID").text(id);
+    $("#inputProductImage").val("");
+    $("#modalTitle").text("SỬA SẢN PHẨM");
+    $("#editButton").show();
+    $("#addButton").hide();
+};
+const editProduct = () => {
+    let id = $("#inputProductID").text();
+    let name = $("#inputProductName").val();
+    let description = $("#inputProductDescription").val();
+    let price = $("#inputProductPrice").val();
+    let typeID = $("#inputProductTypeSelector").val();
+    let imageUrl = $("#inputProductImage").val().split(/(\\|\/)/g).pop();
+    if (imageUrl != "") {
+        var fileData = $("#inputProductImage").prop("files")[0];
+        var formData = new FormData();
+        formData.append("file", fileData);
+        $.ajax({
+            async: false,
+            url: "productImage",
+            dataType: 'script',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            type: 'POST'
+        })
+    }
+    $.ajax({
+        async: false,
+        url: `product?action=editProduct&id=${id}&name=${name}&description=${description}&price=${price}&typeID=${typeID}&imageUrl=${imageUrl}`,
+        cache: false,
+        contentType: false,
+        processData: false,
+        type: 'GET'
+    });
+
+    alert("Sửa thành công");
+    $("#addMenuItem").hide();
+    getAllProduct();
+};
+const removeProduct = (id, imageUrl) => {
+    if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?\rThao tác này không thể hoàn lại") == true) {
+        $.ajax({
+            async: false,
+            url: `product?action=removeProduct&id=${id}&imageUrl=${imageUrl}`,
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'GET'
+        });
+        alert("Xóa thực đơn thành công");
+        getAllProduct();
+    }
+};
 const addMenuItem = () => {
     if (validate() == false) {
         return;
@@ -36,68 +132,8 @@ const addMenuItem = () => {
     getAllProduct();
 
 };
-const removeProduct = (id, imageUrl) => {
-    if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?\rThao tác này không thể hoàn lại") == true) {
-        $.ajax({
-            async: false,
-            url: `product?action=removeProduct&id=${id}&imageUrl=${imageUrl}`,
-            cache: false,
-            contentType: false,
-            processData: false,
-            type: 'GET'
-        });
-        alert("Xóa thực đơn thành công");
-        getAllProduct();
-    }
-};
-const editProduct = () => {
-    let id = $("#inputProductID").text();
-    let name = $("#inputProductName").val();
-    let description = $("#inputProductDescription").val();
-    let price = $("#inputProductPrice").val();
-    let typeID = $("#inputProductTypeSelector").val();
-    let imageUrl = $("#inputProductImage").val().split(/(\\|\/)/g).pop();
-    if (imageUrl != "") {
-        var fileData = $("#inputProductImage").prop("files")[0];
-        var formData = new FormData();
-        formData.append("file", fileData);
-        $.ajax({
-            async: false,
-            url: "productImage",
-            dataType: 'script',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: formData,
-            type: 'POST'
-        })
-    }
-    $.ajax({
-        async: false,
-        url: `product?action=editProduct&id=${id}&name=${name}&description=${description}&price=${price}&typeID=${typeID}&imageUrl=${imageUrl}`,
-        cache: false,
-        contentType: false,
-        processData: false,
-        type: 'GET'
-    });
 
-    alert("Sửa thành công");
-    $("#addMenuItem").hide();
-    getAllProduct();
-};
-const showEditProductModal = (id,name,description,price,imageUrl,typeID) => {
-    var modal = document.getElementById('addMenuItem');
-    modal.style.display = "block";
-    $("#inputProductName").val(name);
-    $("#inputProductDescription").val(description);
-    $("#inputProductPrice").val(price);
-    $("#inputProductTypeSelector").val(typeID);
-    $("#inputProductID").text(id);
-    $("#inputProductImage").val("");
-    $("#modalTitle").text("SỬA SẢN PHẨM");
-    $("#editButton").show();
-    $("#addButton").hide();
-};
+
 const modal = () => {
     var modal = document.getElementById('addMenuItem');
     var btn = document.getElementById('addMenuItemButton');
@@ -120,17 +156,6 @@ const modal = () => {
         }
     };
     getAllProductType();
-};
-const getAllProductType = () => {
-    let HTML = "";
-    $("#inputProductTypeSelector").html("");
-    $.get("productType?action=getAll", data => {
-        data.producttypes.forEach(producttype => {
-            HTML += `<option value="${producttype.id}">${producttype.name}`;
-        });
-
-        $("#inputProductTypeSelector").html(HTML);
-    });
 };
 const validate = () => {
     let name = $("#inputProductName").val();
@@ -161,28 +186,6 @@ const clear = () => {
     $("#inputProductPrice").val("");
     $("#inputProductImage").val("");
 };
-const getAllProduct = () => {
-    let HTML = "";
-    $("#menuList").html("");
-    $.get("product?action=viewAll", data => {
-        data.products.forEach(product => {
-            HTML += `<div class="menuItem">
-                        <div class="productImage"><img src="img/product/${product.imageUrl}" alt="Chưa có hình"/></div>
-                        <div class="productName">${product.name}</div>
-                        <div class="productDescription">${product.description}</div>
-                        <div class="productPrice">${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VNĐ</div>
-                        <div class="productOperation">
-                            <img class="removeButton" onclick="removeProduct('${product.id}','${product.imageUrl}')" src="img/removeicon.png"/>
-                            <img class="editButton" onclick="showEditProductModal('${product.id}','${product.name}','${product.description}','${product.price}','${product.imageUrl}','${product.typeID}')" src="img/editicon.png"/>
-                        </div>
-                    </div>`;
-        });
-        HTML += `<div class="menuItem">
-                    <div class="addIconButton"><img id="addMenuItemButton" class="addButton" src="img/addicon.png"/></div>
-                 </div>`;
-        $("#menuList").html(HTML);
-        modal();
-    });
-};
+
 getAllProduct();
 
