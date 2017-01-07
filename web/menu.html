@@ -1,0 +1,70 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/navbar.css"/>
+    <link rel="stylesheet" href="css/menupage.css"/>
+    <link rel="stylesheet" href="css/body.css"/>
+    <link rel="stylesheet" href="css/modal.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="nav">
+    <ul>
+        <li class="logo"><a href="index.html">SUSHI</a></li>
+        <li><a href="index.html">TRANG CHỦ</a></li>
+        <li><a href="menu.html">SẢN PHẨM</a></li>
+        <li><a href="">THỐNG KÊ</a></li>
+        <li><a href="">ABOUT</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div class="menuContainer" id="menuList">
+    </div>
+    <div id="addMenuItem" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">×</span>
+                <span id="modalTitle">THÊM SẢN PHẨM</span>
+            </div>
+            <div class="modal-body">
+                <table class="form">
+                    <tr>
+                        <td style="width:50%">Tên sản phẩm</td>
+                        <td style="width:50%"><input id="inputProductName" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>Loại sản phẩm</td>
+                        <td>
+                            <select id="inputProductTypeSelector"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mô tả</td>
+                        <td><input id="inputProductDescription" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>Giá sản phẩm</td>
+                        <td><input id="inputProductPrice" type="number"/> VNĐ</td>
+                    </tr>
+                    <tr>
+
+                        <td>Chọn hình</td>
+                        <td><input id="inputProductImage" type="file" accept=".jpg, .png, .jpeg"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span id="inputProductID" class="hideID"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tdCenter">
+                            <input id="addButton" type="button" onclick="addMenuItem()" value="Lưu lại"/>
+                            <input id="editButton" type="button" onclick="editProduct()" value="Lưu chỉnh sửa"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="script/menupage.js"></script>
+</html>

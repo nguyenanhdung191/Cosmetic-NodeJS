@@ -1,0 +1,30 @@
+body {
+    height: 1000px;
+    background: #FFEEEE; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #FFEEEE, #DDEFBB); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #FFEEEE, #DDEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 0;
+}
+
+.nav {
+    margin-bottom: 70px;
+}
+
+.content {
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 13px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 4px 13px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 4px 13px -2px rgba(0, 0, 0, 0.75);
+    margin: 0 auto;
+    width: 1024px;
+    background-color: white;
+}
+
+.menuContainer{
+    overflow: hidden;
+}
+
+
+
+

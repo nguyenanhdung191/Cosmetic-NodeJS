@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:900&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+
+ul {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 150px;
+    overflow: hidden;
+    background: #870000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #870000, #190A05); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #870000, #190A05); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #4CAF50;
+}
+
+.logo {
+    margin-right: 100px;
+}
+
+.logoa:hover {
+    margin-right: 100px;
+}
