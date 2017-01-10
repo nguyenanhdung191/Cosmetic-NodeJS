@@ -1,8 +1,15 @@
 const express = require('express');
-const app = express();
 const Controller = require("./src/Controller/Controller");
-app.use(express.static(__dirname + '/web'));
+const config = require("./src/Common/Config");
+const sql = require("mssql");
+sql.connect(config.db, function (err) {
+    if (err) {
+        console.log('Connect err: ' + err);
+    }
+});
 
+const app = express();
+app.use(express.static(__dirname + '/web'));
 const productController = new Controller.ProductController();
 const productTypeController = new Controller.ProductTypeController();
 const orderController = new Controller.OrderController();
@@ -21,14 +28,14 @@ app.all("/api/orderDetails", function (req, res) {
 });
 
 app.all("/api/productTypes", function (req, res) {
-    productTypeController.service(req,res);
+    productTypeController.service(req, res);
 });
 
 app.all("/", function (req, res) {
     res.send(__dirname + "/web/index.html");
 });
 
-app.all('/*', function(req, res){
+app.all('/*', function (req, res) {
     res.send("invalid URL");
 });
 

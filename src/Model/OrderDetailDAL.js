@@ -8,14 +8,18 @@ class OrderDetailDAL extends GeneralDAL {
     }
 
     getOrderDetailByOrderID(orderID) {
-        return this.runQuery(`SELECT * FROM "orderdetail" WHERE orderID = ${orderID}`)
+        return this.runQuery(`SELECT * FROM orderdetail WHERE orderID = ${orderID}`)
             .then(result => {
-                result.forEach(row => {
-
-                });
+                let ods = [];
+                return Promise.all(result.map(od => {
+                    return this.pd.getProductByID(od.productID)
+                        .then(p => {
+                            od.product = p;
+                            ods.push(od);
+                        });
+                })).then(() => ods);
             });
     }
-
 }
 
 module.exports = OrderDetailDAL;

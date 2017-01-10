@@ -6,22 +6,14 @@ class GeneralDAL {
     }
 
     runQuery(query) {
-        let self = this;
-        return sql.connect(config.db).then(function () {
-            return new sql.Request().query(query).then(function (recordset) {
-                sql.close();
-                return recordset;
-            });
+        return new sql.Request().query(query).then(function (recordset) {
+            return recordset;
         });
     }
 
     runCRUD(query) {
-        let self = this;
-        return sql.connect(config.db).then(function () {
-            return new sql.Request().query(query).then(function (recordset) {
-                sql.close();
-                return recordset.rowsAffected;
-            });
+        return new sql.Request().query(query).then(function (recordset) {
+            return recordset.rowsAffected;
         });
     }
 }
