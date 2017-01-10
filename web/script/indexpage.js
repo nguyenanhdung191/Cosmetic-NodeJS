@@ -3,16 +3,16 @@ let currentOrderID;
 const getCurrentOrder = () => {
     let HTML = "";
     $("#orderList").html("");
-    $.get("order?action=getCurrentOrder", data => {
-        data.orders.forEach(order => {
+    $.get("/api/orders", data => {
+        data.forEach(order => {
             HTML += `<div class="orderItem">
             <div class="orderIcon"><img class="icon" src="img/order.png"/></div>
-            <div class="orderNo">Order số: ${order.id}</div>
+            <div class="orderNo">Order số: ${order.orderID}</div>
             <div class="orderInfoContainer">
                 <table>
                     <tr>
                         <td>Ngày order:</td>
-                        <td>${order.orderDate}</td>
+                        <td>${moment(order.orderDate).format("DD/MM/YYYY HH:mm")}</td>
                     </tr>
                     <tr>
                         <td>Trạng thái:</td>
@@ -22,7 +22,7 @@ const getCurrentOrder = () => {
                         <td colspan="2"></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><button class="button" onclick="getOrderDetail('${order.id}')">Xem chi tiết</button></td>
+                        <td colspan="2"><button class="button" onclick="getOrderDetail('${order.orderID}')">Xem chi tiết</button></td>
                     </tr>
                     <tr>
                         <td colspan="2"><button class="button">In phiếu bếp</button></td>
@@ -47,7 +47,7 @@ const getCurrentOrder = () => {
 const getOrderDetail = (orderID) => {
     currentOrderID = orderID;
     $("#orderDetail").show();
-    $.get(`orderDetail?action=getOrderDetail&orderID=${orderID}`, data => {
+    $.get(`/api/orderDetails?orderID=${orderID}`, data => {
         let HTML;
         $("#orderDetailList").html(`<tr>
                                         <td class="header">Món</td>
@@ -55,7 +55,7 @@ const getOrderDetail = (orderID) => {
                                         <td class="header">Thành tiền</td>
                                         <td class="header" colspan="3">Thao tác</td>
                                     </tr>`);
-        data.orderdetails.forEach(orderdetail => {
+        data.forEach(orderdetail => {
             HTML += `<tr>
                         <td>${orderdetail.productName}</td>
                         <td>${orderdetail.quantity}</td>
@@ -73,7 +73,7 @@ const addOrderItem = () => {
     let orderAddress = prompt("Vui lòng nhập địa chỉ giao hàng");
     let orderPhoneNumber = prompt("Vui lòng nhập số điện thoại");
 
-    if(orderCustomerName == "" || orderAddress == "" || orderPhoneNumber == ""){
+    if (orderCustomerName == "" || orderAddress == "" || orderPhoneNumber == "") {
         return;
     }
     $.ajax({
@@ -146,8 +146,7 @@ const addProductDetail = (id) => {
     });
     getOrderDetail(currentOrderID);
 };
-
 getCurrentOrder();
-getMenuTree();
+//getMenuTree();
 
 

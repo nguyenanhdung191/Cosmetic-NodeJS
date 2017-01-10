@@ -5,9 +5,19 @@ app.use(express.static(__dirname + '/web'));
 
 const productController = new Controller.ProductController();
 const productTypeController = new Controller.ProductTypeController();
+const orderController = new Controller.OrderController();
+const orderDetailController = new Controller.OrderDetailController();
 
 app.all("/api/products", function (req, res) {
     productController.service(req, res);
+});
+
+app.all("/api/orders", function (req, res) {
+    orderController.service(req, res);
+});
+
+app.all("/api/orderDetails", function (req, res) {
+    orderDetailController.service(req, res);
 });
 
 app.all("/api/productTypes", function (req, res) {
