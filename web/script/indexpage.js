@@ -1,5 +1,6 @@
 let ps = [];
 let currentOrderID;
+let currentOrderDetail;
 const getCurrentOrder = () => {
     let HTML = "";
     $("#orderList").html("");
@@ -50,22 +51,23 @@ const getOrderDetail = (orderID) => {
     $.get(`/api/orderDetails?orderID=${orderID}`, data => {
         let HTML;
         $("#orderDetailList").html(`<tr>
-                                        <td class="header">Món</td>
+                                        <td class="header">Sản phẩm</td>
                                         <td class="header">Số lượng</td>
                                         <td class="header">Thành tiền</td>
                                         <td class="header" colspan="3">Thao tác</td>
                                     </tr>`);
         data.forEach(orderdetail => {
             HTML += `<tr>
-                        <td>${orderdetail.productName}</td>
-                        <td>${orderdetail.quantity}</td>
-                        <td>${parseInt(orderdetail.quantity) * parseInt(orderdetail.productPrice)}</td>
+                        <td>${orderdetail.product.productName}</td>
+                        <td><button class="quantityButton" onclick="addQuantity(this)">+</button><span>${orderdetail.quantity}</span><button onclick="minusQuantity(this)" class="quantityButton">-</button></td>
+                        <td>${(parseInt(orderdetail.quantity) * parseInt(orderdetail.product.productPrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</td>
                         <td>Thêm</td>
                         <td>Sửa</td>
                         <td>Xóa</td>
                     </tr>`;
         });
         $("#orderDetailList").append(HTML);
+        currentOrderDetail = data;
     });
 };
 const addOrderItem = () => {
@@ -107,23 +109,23 @@ const getMenuTree = () => {
     let HTML = `<tr class="treegrid-1">
                     <td>SẢN PHẨM</td>
                 </tr>`;
-    $.get("product?action=viewAll", product => {
-        product.products.forEach(p => {
+    $.get("/api/products", product => {
+        product.forEach(p => {
             ps.push(p);
         });
     });
-    $.get("productType?action=getAll", productType => {
-        productType.producttypes.forEach(producttype => {
+    $.get("/api/productTypes", productType => {
+        productType.forEach(producttype => {
             child += 1;
             HTML += `<tr class="treegrid-${child} treegrid-parent-1">
-                        <td>${producttype.name}</td>
+                        <td>${producttype.productTypeName}</td>
                     </tr>`;
             let parent = child;
             ps.forEach(p => {
-                if (p.typeID == producttype.id) {
+                if (p.productTypeID == producttype.productTypeID) {
                     child += 1;
                     HTML += `<tr class="treegrid-${child} treegrid-parent-${parent}">
-                                <td><a id="p-${p.id}" class="menuTreeItem" ondblclick="addProductDetail(this.id)" href="#">${p.name}</a></td>
+                                <td><a id="p-${p.productID}" class="menuTreeItem" ondblclick="addProductDetail(${p.productID})" href="#">${p.productName}</a></td>
                              </tr>`;
                 }
             });
@@ -132,21 +134,37 @@ const getMenuTree = () => {
     $("#menuTree").html(HTML);
     $(".tree").treegrid();
     $('.tree').treegrid('getRootNodes').treegrid('getChildNodes').treegrid('collapse');
-    jQuery.ajaxSetup({async: true});
+    //jQuery.ajaxSetup({async: true});
 };
 const addProductDetail = (id) => {
-    let productID = id.split("-")[1];
+    for (let i = 0; i < currentOrderDetail.length; i++) {
+        if (currentOrderDetail[i].product.productID == id) {
+            alert("Sản phẩm này đã có trong order");
+            return;
+        }
+    }
     $.ajax({
         async: false,
-        url: `orderDetail?action=addOrderDetail&orderID=${currentOrderID}&productID=${productID}&quantity=1`,
-        cache: false,
-        contentType: false,
-        processData: false,
-        type: 'GET'
+        url: `/api/orderDetails`,
+        contentType: "application/json",
+        data: JSON.stringify({productID: id, quantity: 1, orderID: currentOrderID}),
+        type: 'POST'
     });
     getOrderDetail(currentOrderID);
 };
+const addQuantity = (button) => {
+    let quantity = parseInt($(button).next().html()) + 1;
+    $(button).next().html(quantity);
+};
+
+const minusQuantity = (button) => {
+    let quantity = parseInt($(button).prev().html()) - 1;
+    if(quantity == 0){
+        return;
+    }
+    $(button).prev().html(quantity);
+};
 getCurrentOrder();
-//getMenuTree();
+getMenuTree();
 
 

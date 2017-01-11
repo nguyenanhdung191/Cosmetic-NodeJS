@@ -14,18 +14,38 @@ class OrderDetailController {
                         .then(json => {
                             res.json(json);
                         });
+                } else if (Object.keys(queries).length === 0 && queries.constructor === Object) {
+                    this.getAllOrderDetail()
+                        .then(json => {
+                            res.json(json);
+                        });
                 }
                 break;
             }
 
-            case "DELETE": {
-                break;
+            case "POST": {
+                this.addOrderDetail(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
             }
         }
     }
 
     getOrderDetailByOrderID(orderID) {
         return this.odd.getOrderDetailByOrderID(orderID);
+    }
+
+    getAllOrderDetail() {
+        return this.odd.getAllOrderDetail();
+    }
+
+    addOrderDetail(orderDetail) {
+        return this.odd.addOrderDetail(orderDetail);
     }
 }
 

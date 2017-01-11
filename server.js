@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const Controller = require("./src/Controller/Controller");
 const config = require("./src/Common/Config");
 const sql = require("mssql");
@@ -9,6 +10,7 @@ sql.connect(config.db, function (err) {
 });
 
 const app = express();
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/web'));
 const productController = new Controller.ProductController();
 const productTypeController = new Controller.ProductTypeController();

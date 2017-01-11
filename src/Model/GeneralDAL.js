@@ -12,8 +12,9 @@ class GeneralDAL {
     }
 
     runCRUD(query) {
-        return new sql.Request().query(query).then(function (recordset) {
-            return recordset.rowsAffected;
+        let request;
+        return request = new sql.Request().query(query).then(function (recordset) {
+            return request.rowsAffected;
         });
     }
 }
