@@ -59,7 +59,7 @@ const getOrderDetail = (orderID) => {
         data.forEach(orderdetail => {
             HTML += `<tr>
                         <td>${orderdetail.product.productName}</td>
-                        <td><button class="quantityButton" onclick="addQuantity(this)">+</button><span>${orderdetail.quantity}</span><button onclick="minusQuantity(this)" class="quantityButton">-</button></td>
+                        <td><button class="quantityButton" onclick="addQuantity(this)">+</button><span>${orderdetail.quantity}</span><button onclick="minusQuantity(this)" class="quantityButton">&minus;</button></td>
                         <td>${(parseInt(orderdetail.quantity) * parseInt(orderdetail.product.productPrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</td>
                         <td>Thêm</td>
                         <td>Sửa</td>
@@ -156,7 +156,6 @@ const addQuantity = (button) => {
     let quantity = parseInt($(button).next().html()) + 1;
     $(button).next().html(quantity);
 };
-
 const minusQuantity = (button) => {
     let quantity = parseInt($(button).prev().html()) - 1;
     if(quantity == 0){
@@ -164,6 +163,8 @@ const minusQuantity = (button) => {
     }
     $(button).prev().html(quantity);
 };
+
+
 getCurrentOrder();
 getMenuTree();
 
