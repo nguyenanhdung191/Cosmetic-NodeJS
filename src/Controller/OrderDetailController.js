@@ -22,7 +22,6 @@ class OrderDetailController {
                 }
                 break;
             }
-
             case "POST": {
                 this.addOrderDetail(req.body)
                     .then(result => {
@@ -32,6 +31,29 @@ class OrderDetailController {
                             res.send("Done!");
                         }
                     });
+                break;
+            }
+            case "PUT": {
+                this.updateQuantity(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
+                break;
+            }
+            case "DELETE": {
+                this.deleteOrderDetail(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
+                break;
             }
         }
     }
@@ -46,6 +68,14 @@ class OrderDetailController {
 
     addOrderDetail(orderDetail) {
         return this.odd.addOrderDetail(orderDetail);
+    }
+
+    updateQuantity(orderDetail) {
+        return this.odd.updateQuantity(orderDetail);
+    }
+
+    deleteOrderDetail(orderDetail) {
+        return this.odd.deleteOrderDetail(orderDetail);
     }
 }
 

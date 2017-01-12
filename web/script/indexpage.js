@@ -25,15 +25,6 @@ const getCurrentOrder = () => {
                     <tr>
                         <td colspan="2"><button class="button" onclick="getOrderDetail('${order.orderID}')">Xem chi tiết</button></td>
                     </tr>
-                    <tr>
-                        <td colspan="2"><button class="button">In phiếu bếp</button></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button class="button">In tạm tính</button></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button class="button">In bill</button></td>
-                    </tr>
                 </table>
             </div>
         </div>`
@@ -54,16 +45,14 @@ const getOrderDetail = (orderID) => {
                                         <td class="header">Sản phẩm</td>
                                         <td class="header">Số lượng</td>
                                         <td class="header">Thành tiền</td>
-                                        <td class="header" colspan="3">Thao tác</td>
+                                        <td class="header"></td>
                                     </tr>`);
         data.forEach(orderdetail => {
             HTML += `<tr>
                         <td>${orderdetail.product.productName}</td>
-                        <td><button class="quantityButton" onclick="addQuantity(this)">+</button><span>${orderdetail.quantity}</span><button onclick="minusQuantity(this)" class="quantityButton">&minus;</button></td>
+                        <td><button orderDetailID="${orderdetail.orderDetailID}" class="quantityButton" onclick="addQuantity(this)">+</button><span>${orderdetail.quantity}</span><button orderDetailID="${orderdetail.orderDetailID}" onclick="minusQuantity(this)" class="quantityButton">&minus;</button></td>
                         <td>${(parseInt(orderdetail.quantity) * parseInt(orderdetail.product.productPrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</td>
-                        <td>Thêm</td>
-                        <td>Sửa</td>
-                        <td>Xóa</td>
+                        <td><button orderDetailID="${orderdetail.orderDetailID}" class="deleteOrderDetailButton" onclick="deleteOrderDetail(this)">XÓA</button></td>
                     </tr>`;
         });
         $("#orderDetailList").append(HTML);
@@ -107,7 +96,7 @@ const getMenuTree = () => {
     jQuery.ajaxSetup({async: false});
     let child = 1;
     let HTML = `<tr class="treegrid-1">
-                    <td>SẢN PHẨM</td>
+                    <td>THÊM SẢN PHẨM</td>
                 </tr>`;
     $.get("/api/products", product => {
         product.forEach(p => {
@@ -153,17 +142,47 @@ const addProductDetail = (id) => {
     getOrderDetail(currentOrderID);
 };
 const addQuantity = (button) => {
+    let orderDetailID = $(button).attr("orderDetailID");
     let quantity = parseInt($(button).next().html()) + 1;
+    $.ajax({
+        async: false,
+        url: `/api/orderDetails`,
+        contentType: "application/json",
+        data: JSON.stringify({orderDetailID: orderDetailID, quantity: quantity}),
+        type: 'PUT'
+    });
     $(button).next().html(quantity);
+    getOrderDetail(currentOrderID);
+
 };
 const minusQuantity = (button) => {
+    let orderDetailID = $(button).attr("orderDetailID");
     let quantity = parseInt($(button).prev().html()) - 1;
-    if(quantity == 0){
+    if (quantity == 0) {
         return;
+    } else {
+        $.ajax({
+            async: false,
+            url: `/api/orderDetails`,
+            contentType: "application/json",
+            data: JSON.stringify({orderDetailID: orderDetailID, quantity: quantity}),
+            type: 'PUT'
+        });
     }
     $(button).prev().html(quantity);
+    getOrderDetail(currentOrderID);
 };
-
+const deleteOrderDetail = (button) => {
+    let orderDetailID = $(button).attr("orderDetailID");
+    $.ajax({
+        async: false,
+        url: `/api/orderDetails`,
+        contentType: "application/json",
+        data: JSON.stringify({orderDetailID: orderDetailID}),
+        type: 'DELETE'
+    });
+    getOrderDetail(currentOrderID);
+};
 
 getCurrentOrder();
 getMenuTree();

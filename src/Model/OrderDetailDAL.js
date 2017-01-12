@@ -17,7 +17,12 @@ class OrderDetailDAL extends GeneralDAL {
                             od.product = p;
                             ods.push(od);
                         });
-                })).then(() => ods);
+                })).then(() => {
+                    ods.sort((a, b) => {
+                        return a.orderDetailID - b.orderDetailID;
+                    });
+                    return ods;
+                });
             });
     }
 
@@ -41,6 +46,17 @@ class OrderDetailDAL extends GeneralDAL {
         query += orderDetail.productID + ",";
         query += orderDetail.quantity + ")";
         return this.runCRUD(query);
+    }
+
+    updateQuantity(orderDetail) {
+        let query = `UPDATE orderdetail 
+                    SET quantity=${orderDetail.quantity} 
+                    WHERE orderDetailID=${orderDetail.orderDetailID}`;
+        return this.runCRUD(query);
+    }
+
+    deleteOrderDetail(orderDetail){
+        return this.runCRUD(`DELETE FROM orderdetail WHERE orderDetailID = ${orderDetail.orderDetailID}`);
     }
 }
 

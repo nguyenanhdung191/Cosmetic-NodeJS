@@ -6,7 +6,7 @@ class OrderDAL extends GeneralDAL {
     }
 
     getCurrentOrder() {
-        return this.runQuery(`SELECT * FROM "order" WHERE orderStateCode = -1`);
+        return this.runQuery(`SELECT * FROM "order" WHERE orderStateCode = -1 ORDER BY orderDate ASC`);
     }
 
     getAllOrder() {
