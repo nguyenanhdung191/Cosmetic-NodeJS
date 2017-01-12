@@ -7,7 +7,7 @@ body {
     margin: 0;
 }
 
-body, div, ul, li, button{
+* {
     font-family: 'Nunito Sans', sans-serif;
 }
 

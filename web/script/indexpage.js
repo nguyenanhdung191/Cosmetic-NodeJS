@@ -16,17 +16,13 @@ const getCurrentOrder = () => {
                         <td>${moment(order.orderDate).format("DD/MM/YYYY HH:mm")}</td>
                     </tr>
                     <tr>
-                        <td>Trạng thái:</td>
-                        <td>Chưa giao</td>
+                        <td colspan="2">Tên: ${order.orderCustomerName}</td>
                     </tr>
                     <tr>
-                        <td colspan="2"></td>
+                        <td colspan="2">Số ĐT: ${order.orderPhoneNumber}</td>
                     </tr>
                     <tr>
                         <td colspan="2"><button class="button" onclick="getOrderDetail('${order.orderID}')">Xem chi tiết</button></td>
-                    </tr>
-                     <tr>
-                        <td colspan="2"><button class="button" onclick="">Sửa thông tin</button></td>
                     </tr>
                     <tr>
                         <td colspan="2"><button class="button" onclick="deleteOrder('${order.orderID}')">Xóa đơn hàng</button></td>
@@ -97,7 +93,7 @@ const addOrder = () => {
     }
 };
 const deleteOrder = (orderID) => {
-    if(confirm("Bạn có chắc chắn muốn xóa order này?") == true) {
+    if (confirm("Bạn có chắc chắn muốn xóa order này?") == true) {
         $.ajax({
             async: false,
             url: `/api/orders`,

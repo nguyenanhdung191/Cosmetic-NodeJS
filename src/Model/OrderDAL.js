@@ -20,8 +20,8 @@ class OrderDAL extends GeneralDAL {
 
     addOrder(order) {
         let query = `INSERT INTO "order" (orderCustomerName, orderAddress, orderPhoneNumber, orderStateCode, orderDate)
-                     VALUES ('${order.orderCustomerName}',
-                     '${order.orderAddress}',
+                     VALUES (N'${order.orderCustomerName}',
+                     N'${order.orderAddress}',
                      ${order.orderPhoneNumber},
                      -1,
                      GETDATE())`;
