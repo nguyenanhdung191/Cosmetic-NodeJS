@@ -1,6 +1,6 @@
 let ps = [];
 let currentOrderID;
-let currentOrderDetail;
+let currentOrderDetailList;
 const getCurrentOrder = () => {
     let HTML = "";
     $("#orderList").html("");
@@ -25,12 +25,18 @@ const getCurrentOrder = () => {
                     <tr>
                         <td colspan="2"><button class="button" onclick="getOrderDetail('${order.orderID}')">Xem chi tiết</button></td>
                     </tr>
+                     <tr>
+                        <td colspan="2"><button class="button" onclick="">Sửa thông tin</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button class="button" onclick="deleteOrder('${order.orderID}')">Xóa đơn hàng</button></td>
+                    </tr>
                 </table>
             </div>
         </div>`
         });
         HTML += `<div class="orderItem">
-                    <img class="addOrderItemButton" onclick="addOrderItem()" src="img/addicon.png"/>
+                    <img class="addOrderItemButton" onclick="addOrder()" src="img/addicon.png"/>
                  </div>`;
         $("#orderList").html(HTML);
         modal();
@@ -39,6 +45,7 @@ const getCurrentOrder = () => {
 const getOrderDetail = (orderID) => {
     currentOrderID = orderID;
     $("#orderDetail").show();
+    let total = 0;
     $.get(`/api/orderDetails?orderID=${orderID}`, data => {
         let HTML;
         $("#orderDetailList").html(`<tr>
@@ -54,28 +61,52 @@ const getOrderDetail = (orderID) => {
                         <td>${(parseInt(orderdetail.quantity) * parseInt(orderdetail.product.productPrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</td>
                         <td><button orderDetailID="${orderdetail.orderDetailID}" class="deleteOrderDetailButton" onclick="deleteOrderDetail(this)">XÓA</button></td>
                     </tr>`;
+            total += (orderdetail.product.productPrice * orderdetail.quantity);
+        });
+        $.get(`/api/orders?orderID=${orderID}`, order => {
+            let HTML = `<tr><td><strong>Order số:</strong> ${order.orderID}</td></tr>
+                    <tr><td><strong>Tên khách hàng:</strong> ${order.orderCustomerName}</td></tr>
+                    <tr><td><strong>Số điện thoại:</strong> ${order.orderPhoneNumber}</td></tr>
+                    <tr><td><strong>Địa chỉ giao hàng:</strong> ${order.orderAddress}</td></tr>
+                    <tr><td><strong>Tổng cộng: ${(total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VNĐ</strong></td></tr>`;
+            $("#orderInfo").html(HTML);
         });
         $("#orderDetailList").append(HTML);
-        currentOrderDetail = data;
+        currentOrderDetailList = data;
     });
 };
-const addOrderItem = () => {
+const addOrder = () => {
     let orderCustomerName = prompt("Vui lòng nhập tên khách hàng");
     let orderAddress = prompt("Vui lòng nhập địa chỉ giao hàng");
     let orderPhoneNumber = prompt("Vui lòng nhập số điện thoại");
+    if (orderCustomerName == null || orderAddress == null || orderPhoneNumber == null) {
 
-    if (orderCustomerName == "" || orderAddress == "" || orderPhoneNumber == "") {
-        return;
+    } else {
+        $.ajax({
+            async: false,
+            url: `/api/orders`,
+            contentType: "application/json",
+            data: JSON.stringify({
+                orderCustomerName: orderCustomerName,
+                orderAddress: orderAddress,
+                orderPhoneNumber: orderPhoneNumber
+            }),
+            type: 'POST'
+        });
+        getCurrentOrder();
     }
-    $.ajax({
-        async: false,
-        url: `order?action=addOrderItem&orderCustomerName=${orderCustomerName}&orderAddress=${orderAddress}&orderPhoneNumber=${orderPhoneNumber}`,
-        cache: false,
-        contentType: false,
-        processData: false,
-        type: 'GET'
-    });
-    getCurrentOrder();
+};
+const deleteOrder = (orderID) => {
+    if(confirm("Bạn có chắc chắn muốn xóa order này?") == true) {
+        $.ajax({
+            async: false,
+            url: `/api/orders`,
+            contentType: "application/json",
+            data: JSON.stringify({orderID: orderID}),
+            type: 'DELETE'
+        });
+        getCurrentOrder();
+    }
 };
 const modal = () => {
     var orderDetailModal = document.getElementById('orderDetail');
@@ -126,8 +157,8 @@ const getMenuTree = () => {
     //jQuery.ajaxSetup({async: true});
 };
 const addProductDetail = (id) => {
-    for (let i = 0; i < currentOrderDetail.length; i++) {
-        if (currentOrderDetail[i].product.productID == id) {
+    for (let i = 0; i < currentOrderDetailList.length; i++) {
+        if (currentOrderDetailList[i].product.productID == id) {
             alert("Sản phẩm này đã có trong order");
             return;
         }

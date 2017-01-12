@@ -14,14 +14,37 @@ class OrderController {
                         .then(json => {
                             res.json(json);
                         });
+                } else if (Object.keys(queries).length === 1 && queries.hasOwnProperty("orderID")) {
+                    this.getOrderByID(queries.orderID)
+                        .then(json => {
+                            res.json(json);
+                        });
                 }
                 else {
                     res.status(404).send('Invalid URL');
                 }
                 break;
             }
-
+            case "POST": {
+                this.addOrder(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
+                break;
+            }
             case "DELETE": {
+                this.deleteOrder(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
                 break;
             }
         }
@@ -29,6 +52,18 @@ class OrderController {
 
     getAllOrder() {
         return this.od.getAllOrder();
+    }
+
+    getOrderByID(id) {
+        return this.od.getOrderByID(id);
+    }
+
+    addOrder(order) {
+        return this.od.addOrder(order);
+    }
+
+    deleteOrder(order) {
+        return this.od.deleteOrder(order);
     }
 }
 
