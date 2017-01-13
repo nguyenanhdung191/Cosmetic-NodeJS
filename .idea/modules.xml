@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Cosmetic-NodeJS.iml" filepath="$PROJECT_DIR$/Cosmetic-NodeJS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Cosmetic-NodeJS.iml" filepath="$PROJECT_DIR$/.idea/Cosmetic-NodeJS.iml" />
     </modules>
   </component>
 </project>

@@ -8,7 +8,6 @@ sql.connect(config.db, function (err) {
         console.log('Connect err: ' + err);
     }
 });
-
 const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/web'));
@@ -47,6 +46,7 @@ const server = app.listen(8080, function () {
     var port = server.address().port;
     console.log("Server started at http://%s:%s", host, port)
 });
+
 
 
 
