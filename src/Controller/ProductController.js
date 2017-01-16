@@ -29,22 +29,52 @@ class ProductController {
                 }
                 break;
             }
-
+            case "PUT": {
+                break;
+            }
+            case "POST": {
+                this.addProduct(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
+                break;
+            }
             case "DELETE": {
+                this.removeProduct(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
                 break;
             }
         }
     }
 
-    getAllProduct(){
+    getAllProduct() {
         return this.pd.getAllProduct();
     }
 
-    getProductByID(id){
+    getProductByID(id) {
         return this.pd.getProductByID(id);
     }
-    getProductByType(typeID){
+
+    getProductByType(typeID) {
         return this.pd.getProductByType(typeID);
+    }
+
+    addProduct(product) {
+        return this.pd.addProduct(product);
+    }
+
+    removeProduct(product) {
+        return this.pd.removeProduct(product);
     }
 }
 

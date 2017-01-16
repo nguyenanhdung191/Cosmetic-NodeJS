@@ -32,7 +32,7 @@ const getAllProductType = () => {
         $("#inputProductTypeSelector").html(HTML);
     });
 };
-const showEditProductModal = (id,name,description,price,imageUrl,typeID) => {
+const showEditProductModal = (id, name, description, price, imageUrl, typeID) => {
     var modal = document.getElementById('addMenuItem');
     modal.style.display = "block";
     $("#inputProductName").val(name);
@@ -52,21 +52,21 @@ const editProduct = () => {
     let price = $("#inputProductPrice").val();
     let typeID = $("#inputProductTypeSelector").val();
     let imageUrl = $("#inputProductImage").val().split(/(\\|\/)/g).pop();
-    if (imageUrl != "") {
-        var fileData = $("#inputProductImage").prop("files")[0];
-        var formData = new FormData();
-        formData.append("file", fileData);
-        $.ajax({
-            async: false,
-            url: "productImage",
-            dataType: 'script',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: formData,
-            type: 'POST'
-        })
-    }
+    /*if (imageUrl != "") {
+     var fileData = $("#inputProductImage").prop("files")[0];
+     var formData = new FormData();
+     formData.append("file", fileData);
+     $.ajax({
+     async: false,
+     url: "productImage",
+     dataType: 'script',
+     cache: false,
+     contentType: false,
+     processData: false,
+     data: formData,
+     type: 'POST'
+     })
+     }*/
     $.ajax({
         async: false,
         url: `product?action=editProduct&id=${id}&name=${name}&description=${description}&price=${price}&typeID=${typeID}&imageUrl=${imageUrl}`,
@@ -84,17 +84,18 @@ const removeProduct = (id, imageUrl) => {
     if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?\rThao tác này không thể hoàn lại") == true) {
         $.ajax({
             async: false,
-            url: `product?action=removeProduct&id=${id}&imageUrl=${imageUrl}`,
-            cache: false,
-            contentType: false,
-            processData: false,
-            type: 'GET'
+            url: `/api/products`,
+            contentType: "application/json",
+            data: JSON.stringify({
+                productID: id
+            }),
+            type: 'DELETE'
         });
-        alert("Xóa thực đơn thành công");
+        alert("Xóa sản phẩm thành công");
         getAllProduct();
     }
 };
-const addMenuItem = () => {
+const addProduct = () => {
     if (validate() == false) {
         return;
     }
@@ -104,7 +105,7 @@ const addMenuItem = () => {
         formData.append("file", fileData);
         $.ajax({
             async: false,
-            url: "productImage",
+            url: "/api/productImage",
             dataType: 'script',
             cache: false,
             contentType: false,
@@ -113,27 +114,29 @@ const addMenuItem = () => {
             type: 'POST'
         })
     }
-    let name = $("#inputProductName").val();
-    let description = $("#inputProductDescription").val();
-    let price = $("#inputProductPrice").val();
-    let typeID = $("#inputProductTypeSelector").val();
-    let imageUrl = $("#inputProductImage").val().split(/(\\|\/)/g).pop();
+    let productName = $("#inputProductName").val();
+    let productDescription = $("#inputProductDescription").val();
+    let productPrice = $("#inputProductPrice").val();
+    let productTypeID = $("#inputProductTypeSelector").val();
+    let productImageUrl = $("#inputProductImage").val().split(/(\\|\/)/g).pop();
     $.ajax({
         async: false,
-        url: `product?action=addMenuItem&name=${name}&description=${description}&price=${price}&typeID=${typeID}&imageUrl=${imageUrl}`,
-        cache: false,
-        contentType: false,
-        processData: false,
-        type: 'GET'
+        url: `/api/products`,
+        contentType: "application/json",
+        data: JSON.stringify({
+            productName: productName,
+            productDescription: productDescription,
+            productPrice: productPrice,
+            productTypeID: productTypeID,
+            productImageUrl: productImageUrl
+        }),
+        type: 'POST'
     });
-
-    alert("Thêm thực đơn thành công");
     clear();
+    alert("Thêm sản phẩm thành công");
     getAllProduct();
 
 };
-
-
 const modal = () => {
     var modal = document.getElementById('addMenuItem');
     var btn = document.getElementById('addMenuItemButton');
@@ -161,7 +164,7 @@ const validate = () => {
     let name = $("#inputProductName").val();
     let description = $("#inputProductDescription").val();
     let price = $("#inputProductPrice").val();
-    if ($("#inputProductImage").val() != ""){
+    if ($("#inputProductImage").val() != "") {
         let extension = $("#inputProductImage").val().match(/[^.]+$/).pop().toLowerCase();
         if (extension == "jpg" || extension == "png" || extension == "jpeg") {
         }
@@ -188,4 +191,3 @@ const clear = () => {
 };
 
 getAllProduct();
-
