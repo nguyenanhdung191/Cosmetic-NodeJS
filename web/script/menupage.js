@@ -9,7 +9,6 @@ const getAllProduct = () => {
                         <div class="productDescription">${product.productDescription}</div>
                         <div class="productPrice">${product.productPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VNĐ</div>
                         <div class="productOperation">
-                            <img class="removeButton" onclick="removeProduct('${product.productID}','${product.productImageUrl}')" src="img/removeicon.png"/>
                             <img class="editButton" onclick="showEditProductModal('${product.productID}','${product.productName}','${product.productDescription}','${product.productPrice}','${product.productImageUrl}','${product.productTypeID}')" src="img/editicon.png"/>
                         </div>
                     </div>`;
@@ -52,28 +51,34 @@ const editProduct = () => {
     let price = $("#inputProductPrice").val();
     let typeID = $("#inputProductTypeSelector").val();
     let imageUrl = $("#inputProductImage").val().split(/(\\|\/)/g).pop();
-    /*if (imageUrl != "") {
-     var fileData = $("#inputProductImage").prop("files")[0];
-     var formData = new FormData();
-     formData.append("file", fileData);
-     $.ajax({
-     async: false,
-     url: "productImage",
-     dataType: 'script',
-     cache: false,
-     contentType: false,
-     processData: false,
-     data: formData,
-     type: 'POST'
-     })
-     }*/
+    if (imageUrl != "") {
+        var fileData = $("#inputProductImage").prop("files")[0];
+        var formData = new FormData();
+        formData.append("file", fileData);
+        $.ajax({
+            async: false,
+            url: "/api/productImage",
+            dataType: 'script',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            type: 'POST'
+        })
+    }
     $.ajax({
         async: false,
-        url: `product?action=editProduct&id=${id}&name=${name}&description=${description}&price=${price}&typeID=${typeID}&imageUrl=${imageUrl}`,
-        cache: false,
-        contentType: false,
-        processData: false,
-        type: 'GET'
+        url: `/api/products`,
+        contentType: "application/json",
+        data: JSON.stringify({
+            productID: id,
+            productName: name,
+            productDescription: description,
+            productPrice: price,
+            productTypeID: typeID,
+            productImageUrl: imageUrl
+        }),
+        type: 'PUT'
     });
 
     alert("Sửa thành công");

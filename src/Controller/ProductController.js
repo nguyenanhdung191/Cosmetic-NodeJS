@@ -30,6 +30,14 @@ class ProductController {
                 break;
             }
             case "PUT": {
+                this.editProduct(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
                 break;
             }
             case "POST": {
@@ -75,6 +83,10 @@ class ProductController {
 
     removeProduct(product) {
         return this.pd.removeProduct(product);
+    }
+
+    editProduct(product) {
+        return this.pd.editProduct(product);
     }
 }
 

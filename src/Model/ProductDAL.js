@@ -1,4 +1,5 @@
 const GeneralDAL = require("./GeneralDAL");
+const fs = require("fs");
 
 class ProductDAL extends GeneralDAL {
     constructor() {
@@ -30,6 +31,17 @@ class ProductDAL extends GeneralDAL {
 
     removeProduct(product) {
         return this.runCRUD(`DELETE FROM product WHERE productID = ${product.productID}`);
+    }
+
+    editProduct(product) {
+        let query = `UPDATE "product"  
+                     SET productName = N'${product.productName}',
+                     productPrice = '${product.productPrice}',
+                     productDescription = N'${product.productDescription}',
+                     productTypeID = ${product.productTypeID}
+                     ${(product.productImageUrl == "") ? " " : `,productImageUrl = N'${product.productImageUrl}' `} 
+                     WHERE productID = ${product.productID}`;
+        return this.runCRUD(query);
     }
 
 }
