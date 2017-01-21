@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f332c1f1-43ca-4dd9-868a-04cbd3105607" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ProductController.js" afterPath="$PROJECT_DIR$/src/Controller/ProductController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ProductDAL.js" afterPath="$PROJECT_DIR$/src/Model/ProductDAL.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/script/menupage.js" afterPath="$PROJECT_DIR$/web/script/menupage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/OrderController.js" afterPath="$PROJECT_DIR$/src/Controller/OrderController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/OrderDAL.js" afterPath="$PROJECT_DIR$/src/Model/OrderDAL.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/indexpage.css" afterPath="$PROJECT_DIR$/web/css/indexpage.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/script/indexpage.js" afterPath="$PROJECT_DIR$/web/script/indexpage.js" />
     </list>
     <ignored path="Cosmetic-NodeJS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,26 +27,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProductController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ProductController.js">
+      <file leaf-file-name="indexpage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/script/indexpage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-237">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+            <state relative-caret-position="306">
+              <caret line="241" column="14" selection-start-line="241" selection-start-column="14" selection-end-line="241" selection-end-column="14" />
               <folding>
-                <element signature="e#215#1164#0" expanded="false" />
-                <element signature="e#1189#1542#0" expanded="false" />
-                <element signature="e#1568#1920#0" expanded="false" />
-                <element signature="e#1948#2303#0" expanded="false" />
+                <element signature="e#91#1752#0" expanded="false" />
+                <element signature="e#1790#3918#0" expanded="false" />
+                <element signature="e#3943#4639#0" expanded="false" />
+                <element signature="e#4674#4990#0" expanded="false" />
+                <element signature="e#5024#5619#0" expanded="false" />
+                <element signature="e#5641#6197#0" expanded="false" />
+                <element signature="e#6225#7473#0" expanded="false" />
+                <element signature="e#7508#7987#0" expanded="false" />
+                <element signature="e#8021#8433#0" expanded="false" />
+                <element signature="e#8469#8968#0" expanded="false" />
+                <element signature="e#9008#9307#0" expanded="false" />
+                <element signature="e#9341#9405#0" expanded="false" />
+                <marker date="1484886075922" expanded="true" signature="252:1511" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="444:1496" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="468:1477" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="493:651" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="676:779" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="804:908" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="933:1094" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="1119:1269" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="1294:1452" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="1565:1686" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="1988:2316" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="2383:3111" ph="..." />
+                <marker date="1484886075922" expanded="false" signature="2737:2744" ph="−" />
+                <marker date="1484886075922" expanded="true" signature="6322:6387" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="6691:6781" ph="..." />
+                <marker date="1484886075922" expanded="true" signature="7031:7229" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductDAL.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrderController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/OrderController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding>
+                <element signature="e#211#920#0" expanded="false" />
+                <element signature="e#946#1296#0" expanded="false" />
+                <element signature="e#1324#1677#0" expanded="false" />
+                <element signature="e#1702#2054#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderDAL.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/OrderDAL.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductDAL.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/ProductDAL.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+            <state relative-caret-position="765">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexpage.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/indexpage.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -73,6 +143,10 @@
         <option value="$PROJECT_DIR$/src/Controller/FileUploadController.js" />
         <option value="$PROJECT_DIR$/web/script/menupage.js" />
         <option value="$PROJECT_DIR$/src/Model/ProductDAL.js" />
+        <option value="$PROJECT_DIR$/web/css/indexpage.css" />
+        <option value="$PROJECT_DIR$/src/Controller/OrderController.js" />
+        <option value="$PROJECT_DIR$/src/Model/OrderDAL.js" />
+        <option value="$PROJECT_DIR$/web/script/indexpage.js" />
       </list>
     </option>
   </component>
@@ -139,7 +213,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -201,6 +274,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cosmetic-NodeJS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cosmetic-NodeJS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -244,6 +335,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,6 +348,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="6.9.1" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HISPVN-Website" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -481,12 +574,15 @@
       <workItem from="1484542848535" duration="2581000" />
       <workItem from="1484577086279" duration="594000" />
       <workItem from="1484637026429" duration="5293000" />
-      <workItem from="1484721461018" duration="1750000" />
+      <workItem from="1484721461018" duration="6145000" />
+      <workItem from="1484792199912" duration="2556000" />
+      <workItem from="1484884768120" duration="3689000" />
+      <workItem from="1484988001968" duration="624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22654000" />
+    <option name="totallyTimeSpent" value="33918000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -525,11 +621,257 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/script/indexpage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#91#1752#0" expanded="false" />
+            <element signature="e#1790#3918#0" expanded="false" />
+            <element signature="e#3943#4639#0" expanded="false" />
+            <element signature="e#4674#4990#0" expanded="false" />
+            <element signature="e#5024#5619#0" expanded="false" />
+            <element signature="e#5641#6197#0" expanded="false" />
+            <element signature="e#6225#7473#0" expanded="false" />
+            <element signature="e#7508#7987#0" expanded="false" />
+            <element signature="e#8021#8433#0" expanded="false" />
+            <element signature="e#8469#8968#0" expanded="false" />
+            <element signature="e#9008#9307#0" expanded="false" />
+            <element signature="e#9341#9405#0" expanded="false" />
+            <marker date="1484886075922" expanded="true" signature="252:1511" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="444:1496" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="468:1477" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="493:651" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="676:779" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="804:908" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="933:1094" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1119:1269" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1294:1452" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1565:1686" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1988:2316" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="2383:3111" ph="..." />
+            <marker date="1484886075922" expanded="false" signature="2737:2744" ph="−" />
+            <marker date="1484886075922" expanded="true" signature="6322:6387" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="6691:6781" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="7031:7229" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/OrderController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#211#920#0" expanded="false" />
+            <element signature="e#946#1296#0" expanded="false" />
+            <element signature="e#1324#1677#0" expanded="false" />
+            <element signature="e#1702#2054#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/OrderDAL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ProductDAL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/indexpage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script/indexpage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#91#1752#0" expanded="false" />
+            <element signature="e#1790#3918#0" expanded="false" />
+            <element signature="e#3943#4639#0" expanded="false" />
+            <element signature="e#4674#4990#0" expanded="false" />
+            <element signature="e#5024#5619#0" expanded="false" />
+            <element signature="e#5641#6197#0" expanded="false" />
+            <element signature="e#6225#7473#0" expanded="false" />
+            <element signature="e#7508#7987#0" expanded="false" />
+            <element signature="e#8021#8433#0" expanded="false" />
+            <element signature="e#8469#8968#0" expanded="false" />
+            <element signature="e#9008#9307#0" expanded="false" />
+            <element signature="e#9341#9405#0" expanded="false" />
+            <marker date="1484886075922" expanded="true" signature="252:1511" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="444:1496" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="468:1477" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="493:651" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="676:779" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="804:908" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="933:1094" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1119:1269" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1294:1452" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1565:1686" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1988:2316" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="2383:3111" ph="..." />
+            <marker date="1484886075922" expanded="false" signature="2737:2744" ph="−" />
+            <marker date="1484886075922" expanded="true" signature="6322:6387" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="6691:6781" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="7031:7229" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/OrderController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#211#920#0" expanded="false" />
+            <element signature="e#946#1296#0" expanded="false" />
+            <element signature="e#1324#1677#0" expanded="false" />
+            <element signature="e#1702#2054#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/OrderDAL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ProductDAL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/indexpage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script/indexpage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1955">
+          <caret line="115" column="53" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="53" />
+          <folding>
+            <element signature="e#91#1752#0" expanded="false" />
+            <element signature="e#1790#3918#0" expanded="false" />
+            <element signature="e#3943#4639#0" expanded="false" />
+            <element signature="e#4674#4990#0" expanded="false" />
+            <element signature="e#5024#5619#0" expanded="false" />
+            <element signature="e#5641#6197#0" expanded="false" />
+            <element signature="e#6225#7473#0" expanded="false" />
+            <element signature="e#7508#7987#0" expanded="false" />
+            <element signature="e#8021#8433#0" expanded="false" />
+            <element signature="e#8469#8968#0" expanded="false" />
+            <element signature="e#9008#9307#0" expanded="false" />
+            <element signature="e#9341#9405#0" expanded="false" />
+            <marker date="1484886075922" expanded="true" signature="252:1511" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="444:1496" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="468:1477" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="493:651" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="676:779" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="804:908" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="933:1094" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1119:1269" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1294:1452" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1565:1686" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1988:2316" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="2383:3111" ph="..." />
+            <marker date="1484886075922" expanded="false" signature="2737:2744" ph="−" />
+            <marker date="1484886075922" expanded="true" signature="6322:6387" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="6691:6781" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="7031:7229" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/OrderController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#211#920#0" expanded="false" />
+            <element signature="e#946#1296#0" expanded="false" />
+            <element signature="e#1324#1677#0" expanded="false" />
+            <element signature="e#1702#2054#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/OrderDAL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ProductDAL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="35" selection-start-line="36" selection-start-column="8" selection-end-line="43" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/indexpage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/product.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -609,6 +951,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="0">
@@ -616,9 +961,6 @@
           </first_editor>
           <second_editor />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
@@ -649,27 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/OrderDAL.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="27" column="35" selection-start-line="21" selection-start-column="8" selection-end-line="27" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/script/indexpage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/OrderController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="51" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -678,6 +999,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="0">
@@ -686,29 +1010,8 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FileUploadController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/img/product/aa.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/img/product/aa.jpg" />
     <entry file="file://$PROJECT_DIR$/web/product.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -721,7 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="55" column="24" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -746,24 +1048,120 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/OrderDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/FileUploadController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ProductController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-237">
+        <state relative-caret-position="-247">
           <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/OrderDetailController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-434">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/indexpage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/OrderController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#215#1164#0" expanded="false" />
-            <element signature="e#1189#1542#0" expanded="false" />
-            <element signature="e#1568#1920#0" expanded="false" />
-            <element signature="e#1948#2303#0" expanded="false" />
+            <element signature="e#211#920#0" expanded="false" />
+            <element signature="e#946#1296#0" expanded="false" />
+            <element signature="e#1324#1677#0" expanded="false" />
+            <element signature="e#1702#2054#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ProductDAL.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+        <state relative-caret-position="765">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/OrderDAL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script/indexpage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="241" column="14" selection-start-line="241" selection-start-column="14" selection-end-line="241" selection-end-column="14" />
+          <folding>
+            <element signature="e#91#1752#0" expanded="false" />
+            <element signature="e#1790#3918#0" expanded="false" />
+            <element signature="e#3943#4639#0" expanded="false" />
+            <element signature="e#4674#4990#0" expanded="false" />
+            <element signature="e#5024#5619#0" expanded="false" />
+            <element signature="e#5641#6197#0" expanded="false" />
+            <element signature="e#6225#7473#0" expanded="false" />
+            <element signature="e#7508#7987#0" expanded="false" />
+            <element signature="e#8021#8433#0" expanded="false" />
+            <element signature="e#8469#8968#0" expanded="false" />
+            <element signature="e#9008#9307#0" expanded="false" />
+            <element signature="e#9341#9405#0" expanded="false" />
+            <marker date="1484886075922" expanded="true" signature="252:1511" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="444:1496" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="468:1477" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="493:651" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="676:779" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="804:908" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="933:1094" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1119:1269" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1294:1452" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1565:1686" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="1988:2316" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="2383:3111" ph="..." />
+            <marker date="1484886075922" expanded="false" signature="2737:2744" ph="−" />
+            <marker date="1484886075922" expanded="true" signature="6322:6387" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="6691:6781" ph="..." />
+            <marker date="1484886075922" expanded="true" signature="7031:7229" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

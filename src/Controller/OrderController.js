@@ -10,7 +10,7 @@ class OrderController {
             case "GET": {
                 let queries = req.query;
                 if (Object.keys(queries).length === 0 && queries.constructor === Object) {
-                    this.getAllOrder()
+                    this.getCurrentOrder()
                         .then(json => {
                             res.json(json);
                         });
@@ -47,11 +47,26 @@ class OrderController {
                     });
                 break;
             }
+            case "PUT": {
+                this.closeOrder(req.body)
+                    .then(result => {
+                        if (result == 0) {
+                            res.status(500).send("Failed!");
+                        } else {
+                            res.send("Done!");
+                        }
+                    });
+                break;
+            }
         }
     }
 
     getAllOrder() {
         return this.od.getAllOrder();
+    }
+
+    getCurrentOrder() {
+        return this.od.getCurrentOrder();
     }
 
     getOrderByID(id) {
@@ -64,6 +79,10 @@ class OrderController {
 
     deleteOrder(order) {
         return this.od.deleteOrder(order);
+    }
+
+    closeOrder(order) {
+        return this.od.closeOrder(order);
     }
 }
 

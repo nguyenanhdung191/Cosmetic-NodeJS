@@ -1,8 +1,10 @@
 const GeneralDAL = require("./GeneralDAL");
+const OrderDetailDAL = require("./OrderDetailDAL");
 
 class OrderDAL extends GeneralDAL {
     constructor() {
         super();
+        this.odd = new OrderDetailDAL();
     }
 
     getCurrentOrder() {
@@ -29,7 +31,17 @@ class OrderDAL extends GeneralDAL {
     }
 
     deleteOrder(order) {
-        return this.runCRUD(`DELETE FROM "order" WHERE orderID = ${order.orderID}`);
+        return this.runCRUD(`DELETE FROM orderdetail WHERE orderID = ${order.orderID}`)
+            .then(() => {
+                return this.runCRUD(`DELETE FROM "order" WHERE orderID = ${order.orderID}`)
+            });
+    }
+
+    closeOrder(order) {
+        let query = `UPDATE "order" 
+                     SET orderStateCode = 1 
+                     WHERE orderID = ${order.orderID}`;
+        return this.runCRUD(query);
     }
 
 }

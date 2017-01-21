@@ -25,6 +25,9 @@ const getCurrentOrder = () => {
                         <td colspan="2"><button class="button" onclick="getOrderDetail('${order.orderID}')">Xem chi tiết</button></td>
                     </tr>
                     <tr>
+                        <td colspan="2"><button class="button" onclick="closeOrder('${order.orderID}')">Duyệt</button></td>
+                    </tr>
+                    <tr>
                         <td colspan="2"><button class="button" onclick="deleteOrder('${order.orderID}')">Xóa đơn hàng</button></td>
                     </tr>
                 </table>
@@ -102,6 +105,26 @@ const deleteOrder = (orderID) => {
             type: 'DELETE'
         });
         getCurrentOrder();
+    }
+};
+const closeOrder = (orderID) => {
+    if (confirm("Bạn có chắc chắn duyệt order này?") == true) {
+        $.get(`/api/orderDetails?orderID=${orderID}`, data => {
+            if (data.length == 0) {
+                alert("Không thể duyệt một đơn hàng trống");
+            }
+            else {
+                $.ajax({
+                    async: false,
+                    url: `/api/orders`,
+                    contentType: "application/json",
+                    data: JSON.stringify({orderID: orderID}),
+                    type: 'PUT'
+                });
+                getCurrentOrder();
+            }
+        });
+
     }
 };
 const modal = () => {
@@ -211,6 +234,10 @@ const deleteOrderDetail = (button) => {
     getOrderDetail(currentOrderID);
 };
 
+
+$(document).keyup(function(e) {
+    if (e.keyCode === 27) $("#orderDetail").hide();   // esc
+});
 getCurrentOrder();
 getMenuTree();
 
