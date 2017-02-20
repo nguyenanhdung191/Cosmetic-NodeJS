@@ -17,14 +17,8 @@ const Controller = require("./src/Controller/Controller");
 //////////////////////////////Declare config file
 const config = require("./src/Common/Config");
 //////////////////////////////Import and use SQL driver for NODEJS
-const sql = require("mssql");
-//Use one connection for entire web app
-sql.connect(config.db, function (err) {
-    if (err) {
-        console.log('Connect err: ' + err);
-    }
-});
-//////////////////////////////Initialize web app
+
+//////////////////////////////Init/ialize web app
 const app = express();
 app.use(bodyParser.json());
 app.use(multer({storage: storage}).any());

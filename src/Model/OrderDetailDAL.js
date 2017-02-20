@@ -8,7 +8,7 @@ class OrderDetailDAL extends GeneralDAL {
     }
 
     getOrderDetailByOrderID(orderID) {
-        return this.runQuery(`SELECT * FROM orderdetail WHERE orderID = ${orderID}`)
+        return this.runQuery(`SELECT * FROM "orderdetail" WHERE "orderID" = ${orderID}`)
             .then(result => {
                 let ods = [];
                 return Promise.all(result.map(od => {
@@ -27,7 +27,7 @@ class OrderDetailDAL extends GeneralDAL {
     }
 
     getAllOrderDetail() {
-        return this.runQuery(`SELECT * FROM orderdetail`)
+        return this.runQuery(`SELECT * FROM "orderdetail"`)
             .then(result => {
                 let ods = [];
                 return Promise.all(result.map(od => {
@@ -41,7 +41,7 @@ class OrderDetailDAL extends GeneralDAL {
     }
 
     addOrderDetail(orderDetail) {
-        let query = "INSERT INTO orderdetail (orderID, productID, quantity) ";
+        let query = `INSERT INTO "orderdetail" ("orderID", "productID", "quantity") `;
         query += "VALUES (" + orderDetail.orderID + ",";
         query += orderDetail.productID + ",";
         query += orderDetail.quantity + ")";
@@ -49,14 +49,14 @@ class OrderDetailDAL extends GeneralDAL {
     }
 
     updateQuantity(orderDetail) {
-        let query = `UPDATE orderdetail 
-                    SET quantity=${orderDetail.quantity} 
-                    WHERE orderDetailID=${orderDetail.orderDetailID}`;
+        let query = `UPDATE "orderdetail"
+                    SET "quantity"=${orderDetail.quantity} 
+                    WHERE "orderDetailID"=${orderDetail.orderDetailID}`;
         return this.runCRUD(query);
     }
 
     deleteOrderDetail(orderDetail){
-        return this.runCRUD(`DELETE FROM orderdetail WHERE orderDetailID = ${orderDetail.orderDetailID}`);
+        return this.runCRUD(`DELETE FROM "orderdetail" WHERE "orderDetailID" = ${orderDetail.orderDetailID}`);
     }
 }
 

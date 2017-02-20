@@ -6,7 +6,7 @@ class ProductTypeDAL extends GeneralDAL {
     }
 
     getAllProductType(){
-        return this.runQuery("SELECT * FROM producttype");
+        return this.runQuery(`SELECT * FROM "producttype"`);
     }
 }
 

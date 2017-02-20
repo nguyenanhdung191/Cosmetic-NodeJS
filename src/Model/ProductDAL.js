@@ -7,16 +7,16 @@ class ProductDAL extends GeneralDAL {
     }
 
     getAllProduct() {
-        return this.runQuery("SELECT * FROM product");
+        return this.runQuery(`SELECT * FROM "product"`);
     }
 
     getProductByID(id) {
-        return this.runQuery(`SELECT * FROM product WHERE productID = ${id}`)
+        return this.runQuery(`SELECT * FROM "product" WHERE "productID" = ${id}`)
             .then(result => result[0]);
     }
 
     getProductByType(typeID) {
-        return this.runQuery(`SELECT * FROM product WHERE productTypeID  = ${typeID}`);
+        return this.runQuery(`SELECT * FROM "product" WHERE "productTypeID" = ${typeID}`);
     }
 
     addProduct(product) {

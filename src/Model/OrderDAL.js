@@ -8,7 +8,7 @@ class OrderDAL extends GeneralDAL {
     }
 
     getCurrentOrder() {
-        return this.runQuery(`SELECT * FROM "order" WHERE orderStateCode = -1 ORDER BY orderDate ASC`);
+        return this.runQuery(`SELECT * FROM "order" WHERE "orderStateCode" = -1 ORDER BY "orderDate" ASC`);
     }
 
     getAllOrder() {
@@ -16,24 +16,24 @@ class OrderDAL extends GeneralDAL {
     }
 
     getOrderByID(id) {
-        return this.runQuery(`SELECT * FROM "order" WHERE orderID = ${id}`)
+        return this.runQuery(`SELECT * FROM "order" WHERE "orderID" = ${id}`)
             .then(result => result[0]);
     }
 
     addOrder(order) {
-        let query = `INSERT INTO "order" (orderCustomerName, orderAddress, orderPhoneNumber, orderStateCode, orderDate)
-                     VALUES (N'${order.orderCustomerName}',
-                     N'${order.orderAddress}',
+        let query = `INSERT INTO "order" ("orderCustomerName", "orderAddress", "orderPhoneNumber", "orderStateCode", "orderDate")
+                     VALUES ('${order.orderCustomerName}',
+                     '${order.orderAddress}',
                      ${order.orderPhoneNumber},
                      -1,
-                     GETDATE())`;
+                     CURRENT_TIME)`;
         return this.runCRUD(query);
     }
 
     deleteOrder(order) {
-        return this.runCRUD(`DELETE FROM orderdetail WHERE orderID = ${order.orderID}`)
+        return this.runCRUD(`DELETE FROM "orderdetail" WHERE "orderID" = ${order.orderID}`)
             .then(() => {
-                return this.runCRUD(`DELETE FROM "order" WHERE orderID = ${order.orderID}`)
+                return this.runCRUD(`DELETE FROM "order" WHERE "orderID" = ${order.orderID}`)
             });
     }
 

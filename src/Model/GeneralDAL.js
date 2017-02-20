@@ -1,21 +1,15 @@
 const config = require("../Common/Config");
-const sql = require("mssql");
 
 class GeneralDAL {
     constructor() {
     }
 
     runQuery(query) {
-        return new sql.Request().query(query).then(function (recordset) {
-            return recordset;
-        });
+        return config.db.query(query).then(result => result);
     }
 
     runCRUD(query) {
-        let request;
-        return request = new sql.Request().query(query).then(function (recordset) {
-            return request.rowsAffected;
-        });
+        return config.db.result(query).then(result => result.rowCount);
     }
 }
 
