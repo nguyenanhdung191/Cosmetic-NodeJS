@@ -55,7 +55,7 @@ class OrderDetailDAL extends GeneralDAL {
         return this.runCRUD(query);
     }
 
-    deleteOrderDetail(orderDetail){
+    deleteOrderDetail(orderDetail) {
         return this.runCRUD(`DELETE FROM "orderdetail" WHERE "orderDetailID" = ${orderDetail.orderDetailID}`);
     }
 }

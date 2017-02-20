@@ -26,7 +26,7 @@ class OrderDAL extends GeneralDAL {
                      '${order.orderAddress}',
                      ${order.orderPhoneNumber},
                      -1,
-                     CURRENT_TIME)`;
+                     now()::timestamp)`;
         return this.runCRUD(query);
     }
 

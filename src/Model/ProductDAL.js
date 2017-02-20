@@ -20,12 +20,12 @@ class ProductDAL extends GeneralDAL {
     }
 
     addProduct(product) {
-        let query = `INSERT INTO "product" (productName, productPrice, productDescription, productTypeID, productImageUrl)
-                     VALUES (N'${product.productName}',
+        let query = `INSERT INTO "product" ("productName", "productPrice", "productDescription", "productTypeID", "productImageUrl")
+                     VALUES ('${product.productName}',
                      ${product.productPrice},
-                     N'${product.productDescription}',
+                     '${product.productDescription}',
                      ${product.productTypeID},
-                     ${(product.productImageUrl == "") ? "NULL" : `N'${product.productImageUrl}'`})`;
+                     ${(product.productImageUrl == "") ? "NULL" : `'${product.productImageUrl}'`})`;
         return this.runCRUD(query);
     }
 
@@ -35,12 +35,12 @@ class ProductDAL extends GeneralDAL {
 
     editProduct(product) {
         let query = `UPDATE "product"  
-                     SET productName = N'${product.productName}',
-                     productPrice = '${product.productPrice}',
-                     productDescription = N'${product.productDescription}',
-                     productTypeID = ${product.productTypeID}
-                     ${(product.productImageUrl == "") ? " " : `,productImageUrl = N'${product.productImageUrl}' `} 
-                     WHERE productID = ${product.productID}`;
+                     SET "productName" = '${product.productName}',
+                     "productPrice" = '${product.productPrice}',
+                     "productDescription" = '${product.productDescription}',
+                     "productTypeID" = ${product.productTypeID}
+                     ${(product.productImageUrl == "") ? " " : `,productImageUrl = '${product.productImageUrl}' `} 
+                     WHERE "productID" = ${product.productID}`;
         return this.runCRUD(query);
     }
 
